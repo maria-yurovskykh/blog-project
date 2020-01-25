@@ -1,0 +1,55 @@
+body {
+font-family: Kontora, sans-serif;
+}
+
+.nav {
+    display: flex;
+    background-color: #000000;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+.nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    background-color: #696969;
+    color: #FFFFFF;
+    height: 50px;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    border: #696969 1px solid;
+    border-radius: 5px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+}
+
+.map__wrapper {
+    position: relative;
+    max-width: 100%;
+}

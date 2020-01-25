@@ -1,14 +1,3 @@
-"use strict";
-
-const Navigation = () => {
-  return (
-    <nav>
-      <a href="/home" role="button">My Blog</a>
-      <a href="/login" role="button">Login</a>
-    </nav>
-  )
-}
-
 const Card = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) => {
   const { editMode, title, content } = item;
 
@@ -39,6 +28,7 @@ const Card = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) =>
     )
   }
 }
+
 class Admin extends React.Component {
   constructor(props) {
     super(props);
