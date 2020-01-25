@@ -21,9 +21,9 @@ const PostAdmin = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel 
     )
   } else {
     return (
-      <div class="card">
-        <h5 class="card-title">{title || "No Title"}</h5>
-        <p class="card-text">{content || "No Content"}</p>
+      <div className="card">
+        <h5 className="card-title">{title || "No Title"}</h5>
+        <p className="card-text">{content || "No Content"}</p>
         <button type="button" onClick={handleDelete}>Delete</button>
         <button type="submit" onClick={handleEdit}>Edit</button>
       </div>

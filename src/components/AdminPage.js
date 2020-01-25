@@ -1,35 +1,7 @@
-const AdminCard = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) => {
-  const { editMode, title, content } = item;
+import React, { Component } from 'react';
+import PostAdmin from './admin/PostAdmin';
 
-  if (editMode) {
-    return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="hidden" name="id" value={item.id} />
-          <input type="text" name="title" placeholder="Title" defaultValue={title} />
-        </div>
-        <div>
-          <textarea name="content" placeholder="Content" defaultValue={content}></textarea>
-        </div>
-        <div>
-          <button type="button" onClick={handleCancel}>Cancel</button>
-          <button type="submit">Save</button>
-        </div>
-      </form>
-    )
-  } else {
-    return (
-      <div>
-        <h5>{title || "No Title"}</h5>
-        <p class="card-text">{content || "No Content"}</p>
-        <button type="button" onClick={handleDelete}>Delete</button>
-        <button type="submit" onClick={handleEdit}>Edit</button>
-      </div>
-    )
-  }
-}
-
-class Admin extends React.Component {
+class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
@@ -40,7 +12,7 @@ class Admin extends React.Component {
   }
 
   getPosts = async () => {
-    const response = await fetch("/posts");
+    const response = await fetch("http://localhost:3000/posts");
     const data = await response.json();
     data.forEach(item => item.editMode = false);
     this.setState({ data });
@@ -73,7 +45,7 @@ class Admin extends React.Component {
   }
 
   handleDelete = async (postId) => {
-    await fetch(`/posts/${postId}`, {
+    await fetch(`http://localhost:3000/posts/${postId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -98,13 +70,13 @@ class Admin extends React.Component {
     };
 
     if (data.get("id")) {
-      await fetch(`/posts/${data.get("id")}`, {
+      await fetch(`http://localhost:3000/posts/${data.get("id")}`, {
         method: "PUT",
         headers,
         body,
       });
     } else {
-      await fetch("/posts", {
+      await fetch("http://localhost:3000/posts", {
         method: "POST",
         headers,
         body,
@@ -116,13 +88,11 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <Navigation />
-
-        <button type="button" onClick={this.addNewPost}>Add new post</button>
+        <button type="button" onClick={this.addNewPost} className="add__button">Add new post</button>
         {
           this.state.data.length > 0 ? (
             this.state.data.map(item => (
-              <AdminCard
+              <PostAdmin
                 item={item}
                 handleSubmit={this.handleSubmit}
                 handleEdit={this.handleEdit.bind(this, item.id)}
@@ -135,11 +105,8 @@ class Admin extends React.Component {
           (<div>You don't have any posts. Use the "Add New Post" button to add some posts!</div>)
         }
       </div>
-    );
+    )
   }
 }
 
-ReactDOM.render(
-  React.createElement(Admin),
-  document.querySelector("#root")
-);
+export default AdminPage;
