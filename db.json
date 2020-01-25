@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "title": "title",
+      "content": "contentss",
+      "id": 1
+    },
+    {
+      "title": "testttts",
+      "content": "hsjssk",
+      "id": 2
+    }
+  ]
+}

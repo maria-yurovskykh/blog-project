@@ -1,4 +1,4 @@
-const Card = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) => {
+const AdminCard = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) => {
   const { editMode, title, content } = item;
 
   if (editMode) {
@@ -122,7 +122,7 @@ class Admin extends React.Component {
         {
           this.state.data.length > 0 ? (
             this.state.data.map(item => (
-              <Card
+              <AdminCard
                 item={item}
                 handleSubmit={this.handleSubmit}
                 handleEdit={this.handleEdit.bind(this, item.id)}
