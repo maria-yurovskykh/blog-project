@@ -1,8 +1,8 @@
 import React from 'react';
 
 const PostAdmin = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel }) => {
-  const { editMode, title, content } = item;
-  
+  const { editMode, title, date, content } = item;
+
   if (editMode) {
     return (
       <form onSubmit={handleSubmit}>
@@ -23,6 +23,7 @@ const PostAdmin = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel 
     return (
       <div className="card">
         <h5 className="card-title">{title || "No Title"}</h5>
+        <p className="card-date">{date}</p>
         <p className="card-text">{content || "No Content"}</p>
         <button type="button" onClick={handleDelete}>Delete</button>
         <button type="submit" onClick={handleEdit}>Edit</button>

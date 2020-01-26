@@ -59,13 +59,26 @@ class AdminPage extends Component {
     await this.getPosts();
   }
 
+  getCurrentDate() {
+    const newDate = new Date()
+    const date = newDate.getDate();
+    const month = newDate.getMonth() + 1;
+    const year = newDate.getFullYear();
+    const hours = newDate.getHours();
+    const minutes = newDate.getMinutes();
+    const seconds = newDate.getSeconds();
+
+    return `${date}.${month}.${year} ${hours}:${minutes}:${seconds}`
+  }
+
   handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
 
     const body = JSON.stringify({
       title: data.get("title"),
-      content: data.get("content"),
+      date: this.getCurrentDate(),
+      content: data.get("content")
     });
 
     const headers = {
@@ -93,7 +106,7 @@ class AdminPage extends Component {
     return (
       <div>
         <BreadCrumbs category={this.state.category} />
-        <button type="button" onClick={this.addNewPost} className="add__button">Add new post</button>
+        <button type="button" onClick={this.addNewPost} className="add-button">Add new post</button>
         {
           this.state.data.length > 0 ? (
             this.state.data.map(item => (
