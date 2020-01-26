@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import BreadCrumbs from './shared/BreadCrumbs';
 import Banner from './home/Banner';
 import Post from './home/Post';
-// import SocialShare from './SocialShare';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      data: [],
+      category: 'home'
+    };
   }
 
   componentDidMount() {
@@ -23,9 +26,8 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+        <BreadCrumbs category={this.state.category} />
         <Banner />
-        {/* <SocialShare /> */}
-
         {
           this.state.data.length > 0
           ?

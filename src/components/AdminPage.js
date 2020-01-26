@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import BreadCrumbs from './shared/BreadCrumbs';
 import PostAdmin from './admin/PostAdmin';
 
 class AdminPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      data: [],
+      category: 'administration'
+    };
   }
 
   componentDidMount() {
@@ -88,6 +92,7 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
+        <BreadCrumbs category={this.state.category} />
         <button type="button" onClick={this.addNewPost} className="add__button">Add new post</button>
         {
           this.state.data.length > 0 ? (
