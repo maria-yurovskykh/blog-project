@@ -25,7 +25,7 @@ class Posts extends Component {
         {
           this.state.data.length > 0
           ?
-          (this.state.data.map(item => <Post item={item} />))
+          (this.state.data.map((item, i)=> <Post item={item} key={i} />))
           :
           (<div className="message">There are no posts yet <span role="img" aria-label="sad emoji">&#x1F641;</span>.</div>)
         }

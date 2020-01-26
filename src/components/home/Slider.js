@@ -12,10 +12,10 @@ class Slider extends Component {
         infiniteLoop={this.props.infiniteLoop}
       >
         {
-          this.props.images.map(item => {
+          this.props.images.map((item, i) => {
             return (
-              <div>
-                <img src={item.src} alt={item.alt} key={item} />
+              <div key={i}>
+                <img src={item.src} alt={item.alt} key={i} />
               </div>
             );
           })
