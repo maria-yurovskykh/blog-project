@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Post from '../home/Post';
+import Post from './Post';
 
 class Posts extends Component {
   constructor(props) {
