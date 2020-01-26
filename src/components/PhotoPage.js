@@ -20,7 +20,7 @@ class PhotoPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="photo-gallery">
         <BreadCrumbs category={this.state.category} />
         <Slider images={this.state.images} showStatus={false} />
       </div>

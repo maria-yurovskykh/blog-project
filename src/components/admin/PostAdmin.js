@@ -5,7 +5,7 @@ const PostAdmin = ({ item, handleSubmit, handleEdit, handleDelete, handleCancel 
 
   if (editMode) {
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="admin-form" onSubmit={handleSubmit}>
         <div>
           <input type="hidden" name="id" value={item.id} />
           <input type="text" name="title" placeholder="Title" defaultValue={title} className="title" />
