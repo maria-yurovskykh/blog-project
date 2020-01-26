@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BreadCrumbs from './shared/BreadCrumbs';
-import Banner from './home/Banner';
+import Slider from './home/Slider'
 import Posts from './shared/Posts';
 
 class HomePage extends Component {
@@ -15,7 +15,7 @@ class HomePage extends Component {
     return (
       <div>
         <BreadCrumbs category={this.state.category} />
-        <Banner />
+        <Slider />
         <Posts />
       </div>
     );

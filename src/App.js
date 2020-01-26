@@ -26,7 +26,7 @@ class App extends Component {
         <main className="container">
           <Route path="/" exact component={HomePage} />
           <Route path="/blog" exact component={BlogPage} />
-          <Route path="/photo" exact component={PhotoPage} />
+          <Route path="/gallery" exact component={PhotoPage} />
           <Route path="/contacts" exact component={ContactsPage} />
           <Route path="/admin" exact component={AdminPage} />
         </main>
