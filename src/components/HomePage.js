@@ -7,7 +7,12 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: 'home'
+      category: 'home',
+      images: [
+        {src: './photo1.jpg', alt: 'photo1'},
+        {src: './photo2.jpg', alt: 'photo2'},
+        {src: './photo3.jpg', alt: 'photo3'}
+      ]
     };
   }
 
@@ -15,7 +20,13 @@ class HomePage extends Component {
     return (
       <div>
         <BreadCrumbs category={this.state.category} />
-        <Slider />
+        <Slider
+          images={this.state.images}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          infiniteLoop={true}
+        />
         <Posts />
       </div>
     );

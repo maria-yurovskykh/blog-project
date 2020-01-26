@@ -5,16 +5,21 @@ import { Carousel } from 'react-responsive-carousel';
 class Slider extends Component {
   render() {
     return (
-      <Carousel showThumbs={false} showStatus={false}>
-        <div>
-          <img src="./photo1.jpg" alt="alt"/>
-        </div>
-        <div>
-          <img src="./photo2.jpg" alt="alt"/>
-        </div>
-        <div>
-          <img src="./photo3.jpg" alt="alt"/>
-        </div>
+      <Carousel
+        showThumbs={this.props.showThumbs}
+        showStatus={this.props.showStatus}
+        autoPlay={this.props.autoPlay}
+        infiniteLoop={this.props.infiniteLoop}
+      >
+        {
+          this.props.images.map(item => {
+            return (
+              <div>
+                <img src={item.src} alt={item.alt} key={item} />
+              </div>
+            );
+          })
+        }
       </Carousel>
     );
   }
