@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from './Post';
+import settings from '../../settings';
 
 class Posts extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Posts extends Component {
   }
 
   getPosts = async () => {
-    const response = await fetch('http://localhost:3000/posts');
+    const response = await fetch(settings.postsEndpoint);
     const data = await response.json();
     data.forEach(item => item.editMode = false);
     this.setState({ data })

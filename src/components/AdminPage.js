@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BreadCrumbs from './shared/BreadCrumbs';
 import PostAdmin from './admin/PostAdmin';
+import settings from '../settings';
 
 class AdminPage extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class AdminPage extends Component {
   }
 
   getPosts = async () => {
-    const response = await fetch("http://localhost:3000/posts");
+    const response = await fetch(settings.postsEndpoint);
     const data = await response.json();
     data.forEach(item => item.editMode = false);
     this.setState({ data });
@@ -49,7 +50,7 @@ class AdminPage extends Component {
   }
 
   handleDelete = async (postId) => {
-    await fetch(`http://localhost:3000/posts/${postId}`, {
+    await fetch(`${settings.postsEndpoint}/${postId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -87,13 +88,13 @@ class AdminPage extends Component {
     };
 
     if (data.get("id")) {
-      await fetch(`http://localhost:3000/posts/${data.get("id")}`, {
+      await fetch(`${settings.postsEndpoint}/${data.get("id")}`, {
         method: "PUT",
         headers,
         body,
       });
     } else {
-      await fetch("http://localhost:3000/posts", {
+      await fetch(settings.postsEndpoint, {
         method: "POST",
         headers,
         body,
