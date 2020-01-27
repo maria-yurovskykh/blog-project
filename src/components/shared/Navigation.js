@@ -3,7 +3,7 @@ import React from 'react';
 const Navigation = () => {
   return (
     <nav className="nav">
-      <label for="menu" className="menu-label">Menu</label>
+      <label htmlFor="menu" className="menu-label">Menu</label>
       <input type="checkbox" name="menu" id="menu" className="menu"></input>
       <div className="nav-buttons">
         <a href="/" role="button">Home</a>
