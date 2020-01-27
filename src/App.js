@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from "react-router-dom"
 import { Route } from 'react-router-dom';
 
 // pages components
@@ -22,15 +23,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navigation />
-        <main className="container">
-          <Route path="/" exact component={HomePage} />
-          <Route path="/blog" exact component={BlogPage} />
-          <Route path="/gallery" exact component={PhotoPage} />
-          <Route path="/contacts" exact component={ContactsPage} />
-          <Route path="/admin" exact component={AdminPage} />
-        </main>
-        <Footer />
+        <Router>
+          <Navigation />
+          <main className="container">
+            <Route path="/" exact component={HomePage} />
+            <Route path="/blog" exact component={BlogPage} />
+            <Route path="/gallery" exact component={PhotoPage} />
+            <Route path="/contacts" exact component={ContactsPage} />
+            <Route path="/admin" exact component={AdminPage} />
+          </main>
+          <Footer />
+        </Router>
       </div>
     );
   }
