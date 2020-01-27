@@ -22,7 +22,7 @@ class Posts extends Component {
 
   render() {
     return (
-      <div>
+      <div className="posts-wrapper">
         {
           this.state.data.length > 0
           ?

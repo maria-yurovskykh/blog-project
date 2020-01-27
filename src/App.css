@@ -471,7 +471,6 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
-
 /* RESET END */
 
 body {
@@ -481,6 +480,25 @@ body {
 
 body * {
   box-sizing: border-box;
+}
+
+button {
+  font-family: Kontora, sans-serif;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px 2px;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 0.8em;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+textarea {
+  height: 200px;
 }
 
 .nav {
@@ -493,7 +511,28 @@ body * {
   background-color: #000;
   align-items: center;
   justify-content: space-around;
-  z-index: 1;
+  z-index: 3;
+}
+
+.menu {
+  display: none;
+}
+
+.menu-label {
+  height: 50px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.nav-buttons {
+  display: none;
+  width: 100%;
+}
+
+.menu:checked + .nav-buttons{
+  display: flex;
+  flex-direction: column;
 }
 
 .nav a {
@@ -502,7 +541,6 @@ body * {
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px 10px 7px;
-  margin: 0 20px;
   width: 100%;
   text-align: center;
   line-height: 1.2;
@@ -514,8 +552,8 @@ body * {
 }
 
 .container {
-  margin: 180px auto 60px;
-  max-height: calc(100% - 200px);
+  margin: 50px auto 60px;
+  max-height: calc(100% - 100px);
   max-width: calc(100% - 60px);
 }
 
@@ -547,34 +585,24 @@ body * {
   margin: 0;
 }
 
-.admin-form {
-  margin-bottom: 20px;
+.posts-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-button {
-  font-family: Kontora, sans-serif;
-  display: inline-block;
-  margin-right: 10px;
-  padding: 3px 10px 1px;
-  border-radius: 5px;
-  background: #000;
-  color: #fff;
-  font-size: 0.8em;
+.admin-form {
+  margin-bottom: 20px;
 }
 
 .add-button {
   font-family: Kontora, sans-serif;
   display: inline-block;
-  padding: 10px 20px 6px;
+  padding: 12px 24px 8px;
   margin-bottom: 20px;
   text-transform: uppercase;
   color: #fff;
   border-radius: 5px;
   font-size: 1em;
-}
-
-button:hover {
-  text-decoration: underline;
 }
 
 .title,
@@ -584,10 +612,6 @@ button:hover {
   margin-bottom: 20px;
   padding: 5px;
   border: 1px solid #696969;
-}
-
-textarea {
-  height: 200px;
 }
 
 .card {
@@ -612,7 +636,6 @@ textarea {
 .card-text {
   margin-bottom: 20px;
   color: #696969;
-
 }
 
 .footer {
@@ -639,6 +662,12 @@ textarea {
   margin: 20px 0;
 }
 
+.photo-gallery .carousel {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
 @media (min-width: 1000px) {
   .nav {
     flex-direction: row;
@@ -647,7 +676,19 @@ textarea {
 
   .nav a {
     position: relative;
+    margin: 0 20px;
     width: 20%;
+  }
+
+  .menu-label {
+    display: none;
+  }
+
+  .nav-buttons,
+  .menu:checked + .nav-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
 
   .nav a:after {
@@ -665,15 +706,10 @@ textarea {
   }
 
   .container {
-    margin: 50px auto 60px;
-    max-height: calc(100% - 100px);
     max-width: 1170px;
   }
-}
 
-.photo-gallery .carousel {
-  display: flex;
-  justify-content: space-around;
-  max-width: 800px;
-  margin: 0 auto;
+  .photo-gallery .carousel {
+    max-width: 800px;
+  }
 }
