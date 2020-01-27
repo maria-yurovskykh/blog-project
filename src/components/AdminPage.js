@@ -109,7 +109,9 @@ class AdminPage extends Component {
         <BreadCrumbs category={this.state.category} />
         <button type="button" onClick={this.addNewPost} className="add-button">Add new post</button>
         {
-          this.state.data.length > 0 ? (
+          this.state.data.length > 0
+          ?
+          (
             this.state.data.map(item => (
               <PostAdmin
                 item={item}
