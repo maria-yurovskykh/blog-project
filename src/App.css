@@ -525,6 +525,10 @@ textarea {
   padding: 20px;
 }
 
+.menu-label:hover {
+  text-decoration: underline;
+}
+
 .nav-buttons {
   display: none;
   width: 100%;
@@ -659,7 +663,7 @@ textarea {
 }
 
 .message {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .photo-gallery .carousel {
